@@ -1,0 +1,15 @@
+{
+	"name": "SpotifyDFProject",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "c2520c3f-50ac-4716-9ca3-6fef4d23a4cd",
+		"tenantId": "44e3cf94-19c9-4e32-96c3-14f5bf01391a"
+	}
+}
