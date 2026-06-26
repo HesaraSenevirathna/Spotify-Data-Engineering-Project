@@ -31,7 +31,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "SELECT * \nFROM @{pipeline().parameters.schema}.@{pipeline().parameters.table} \nWHERE @{pipeline().parameters.cdc_col} > CAST('@{activity('last_cdc').output.value[0].cdc}' AS DATETIME2)\n  AND @{pipeline().parameters.cdc_col} <= CAST('@{variables('current')}' AS DATETIME2)\n\n\n",
+							"value": "SELECT \n    user_id,\n    user_name,\n    country,\n    subscription_type,\n    CONVERT(VARCHAR(50), start_date, 120) AS start_date,\n    CONVERT(VARCHAR(50), end_date, 120) AS end_date,\n    CONVERT(VARCHAR(50), updated_at, 120) AS updated_at\nFROM @{pipeline().parameters.schema}.@{pipeline().parameters.table} \nWHERE @{pipeline().parameters.cdc_col} > CAST('@{activity('last_cdc').output.value[0].cdc}' AS DATETIME2)\n  AND @{pipeline().parameters.cdc_col} <= CAST('@{variables('current')}' AS DATETIME2)\n",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
