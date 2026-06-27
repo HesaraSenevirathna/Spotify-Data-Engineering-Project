@@ -226,6 +226,15 @@
 										"typeProperties": {
 											"source": {
 												"type": "JsonSource",
+												"additionalColumns": [
+													{
+														"name": "cdc",
+														"value": {
+															"value": "@formatDateTime(activity('max_cdc').output.resultSets[0].rows[0].cdc,'yyyy-MM-dd HH:mm:ss')",
+															"type": "Expression"
+														}
+													}
+												],
 												"storeSettings": {
 													"type": "AzureBlobFSReadSettings",
 													"recursive": true,
