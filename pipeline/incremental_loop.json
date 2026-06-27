@@ -8,6 +8,11 @@
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.loop_input",
+						"type": "Expression"
+					},
+					"isSequential": true,
 					"activities": [
 						{
 							"name": "AzureSQLtoLake",
@@ -221,15 +226,6 @@
 										"typeProperties": {
 											"source": {
 												"type": "JsonSource",
-												"additionalColumns": [
-													{
-														"name": "cdc",
-														"value": {
-															"value": "wwwewrdtft",
-															"type": "Expression"
-														}
-													}
-												],
 												"storeSettings": {
 													"type": "AzureBlobFSReadSettings",
 													"recursive": true,
